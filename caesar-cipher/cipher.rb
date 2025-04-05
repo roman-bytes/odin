@@ -1,4 +1,4 @@
-## TODO: Does this loop around?
+## TODO: Does this loop around
 
 def caesar_cipher(string, shift)
   # Loop through passed string,
@@ -18,9 +18,10 @@ def caesar_cipher(string, shift)
 
     # Set charcter to lowercase and grab the index
     charIndex = alphabet.each_with_index.select { |c, _i| c == s.downcase }.map(&:last)
-    
+    new_index = (charIndex[0] + shift) % 26
+
     # Grab the letter based on how much we shift
-    shifted_letter = alphabet[charIndex[0] + shift]
+    shifted_letter = alphabet[new_index]
 
     # Set the charcter to uppercase if it was
     shifted_letter = shifted_letter.upcase if s == s.upcase
@@ -32,4 +33,4 @@ def caesar_cipher(string, shift)
   results.join
 end
 
-puts caesar_cipher('Jacob is a cool person', 5)
+puts caesar_cipher('Jacob is a cool persony', 5)
